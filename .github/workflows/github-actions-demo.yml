@@ -22,4 +22,4 @@ jobs:
           ls ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
       - name: Show secret
-        run: echo "Token=> ${{ secrets.GITHUB_TOKEN }}"
+        run: echo "Token=> ${{ secrets.GITHUB_TOKEN }}aaa"
