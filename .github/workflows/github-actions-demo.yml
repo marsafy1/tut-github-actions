@@ -44,7 +44,7 @@ jobs:
     needs: Explore-GitHub-Actions
     steps:
       - name: Echoing
-        if: ${{ needs.Explore-GitHub-Actions.outputs.my_output != '' }}
+        if: ${{ needs.Explore-GitHub-Actions.outputs.IMNOTHERE != '' }}
         run: echo "This is coming from prev job ${{ needs.Explore-GitHub-Actions.outputs.my_output }}"
 
       # - name: Show secret
