@@ -25,7 +25,7 @@ jobs:
       - run: echo "🍏 This job's status is ${{ job.status }}."
       - name: Echoos
         run: |
-          MODIFIED_SECRET="${{ secrets.GITHUB_TOKEN }}${{ secrets.GITHUB_TOKEN }}"
+          MODIFIED_SECRET="${{ secrets.GITHUB_TOKEN }}-${{ secrets.GITHUB_TOKEN }}"
           echo $MODIFIED_SECRET
       # - name: Show secret
       #   run: |
