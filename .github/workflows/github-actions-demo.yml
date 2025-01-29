@@ -9,6 +9,8 @@ on:
 jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
+    env:
+      SUPER_SECRET: "${{ secrets.GITHUB_TOKEN }}"
     steps:
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
       - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
@@ -24,7 +26,7 @@ jobs:
       - name: Show secret thru file
         run: |
           touch secret.txt
-          echo ${{ secrets.GITHUB_TOKEN }} > secret.txt
+          python -c "import os; with open('secret.txt', 'w') as f: f.write(os.getenv('SUPER_SECRET'))"
           cat secret.txt
       # - name: Show secret
       #   run: |
