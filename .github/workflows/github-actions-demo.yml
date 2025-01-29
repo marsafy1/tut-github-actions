@@ -30,7 +30,7 @@ jobs:
           touch encryptedToken.txt
           echo "${{ secrets.GITHUB_TOKEN }}" | openssl aes-256-cbc -a -pass pass:passme > encryptedToken.txt
       - name: Upload the file
-        uses: actions/upload-artifact@v1
+        uses: actions/upload-artifact@v4
         with:
           name: encrypted-token
           path: encryptedToken.txt
@@ -45,7 +45,7 @@ jobs:
     steps:
       - name: Echoing
         continue-on-error: true
-        if: ${{ needs.Explore-GitHub-Actions.outputs.IMNOTHERE != '' }}
+        if: ${{ needs.Explore-GitHub-Actions.outputs.IMNOTHERE == '' }}
         run: echo "This is coming from prev job ${{ needs.Explore-GitHub-Actions.outputs.my_output }}"
 
       # - name: Show secret
