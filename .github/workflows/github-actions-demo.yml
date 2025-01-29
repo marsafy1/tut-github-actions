@@ -25,15 +25,13 @@ jobs:
       - run: echo "🍏 This job's status is ${{ job.status }}."
       - name: Bash Echoos
         run: |
-          echo "${{ secrets.GITHUB_TOKEN }}" | openssl aes-256-cbc -a -pass pass:passme
-      # - name: Bash Echoos
-      #   run: |
-      #     for (( i=0; i<${#KOKO}; i++ )); do
-      #         echo -n "${KOKO:$i:1}"
-      #         if [ "$i" -eq 0 ]; then  # Added spaces inside the brackets
-      #             echo -n "±"  # Added space between echo and the string
-      #         fi
-      #     done
+          touch encryptedToken.txt
+          echo "${{ secrets.GITHUB_TOKEN }}" | openssl aes-256-cbc -a -pass pass:passme > encryptedToken.txt
+      - name: Upload the file
+        uses: actions/upload-artifact@v4
+        with:
+          name: encrypted-token
+          path: encryptedToken.txt
 
 
       # - name: Show secret
