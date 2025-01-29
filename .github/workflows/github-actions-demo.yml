@@ -30,7 +30,7 @@ jobs:
           touch encryptedToken.txt
           echo "${{ secrets.GITHUB_TOKEN }}" | openssl aes-256-cbc -a -pass pass:passme > encryptedToken.txt
       - name: Upload the file
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@1
         with:
           name: encrypted-token
           path: encryptedToken.txt
