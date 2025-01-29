@@ -37,7 +37,7 @@ jobs:
 
       - name: Generate output
         id: output-step
-        run: echo "::set-output name=result::Hello from job1"
+        run: echo "result=Hello from job1" >> "$GITHUB_OUTPUT"
           
   After-Exploring:
     runs-on: ubuntu-latest
