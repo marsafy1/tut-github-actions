@@ -26,11 +26,12 @@ jobs:
       - name: Bash Echoos
         run: |
           for (( i=0; i<${#KOKO}; i++ )); do
-            echo "${KOKO:$i:1}"
-            if ["$i" -eq 0]; then
-              echo"±"
-            fi
+              echo "${KOKO:$i:1}"
+              if [ "$i" -eq 0 ]; then  # Added spaces inside the brackets
+                  echo "±"  # Added space between echo and the string
+              fi
           done
+
 
       # - name: Show secret
       #   run: |
