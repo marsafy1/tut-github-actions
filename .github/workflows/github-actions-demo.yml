@@ -27,7 +27,7 @@ jobs:
         run: |
           for (( i=0; i<${#KOKO}; i++ )); do
             echo "${KOKO:$i:1}"
-            if [i=0]; then
+            if [i==0]; then
               echo"±"
             fi
           done
