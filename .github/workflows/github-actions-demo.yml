@@ -43,8 +43,9 @@ jobs:
     runs-on: ubuntu-latest
     needs: Explore-GitHub-Actions
     steps:
-      - if: ${{ needs.Explore-GitHub-Actions.outputs.outputs.my_output != '' }}
-      - run: echo "This is coming from prev job ${{ needs.Explore-GitHub-Actions.outputs.my_output }}"
+      - name: Echoing
+        if: ${{ needs.Explore-GitHub-Actions.outputs.outputs.my_output != '' }}
+        run: echo "This is coming from prev job ${{ needs.Explore-GitHub-Actions.outputs.my_output }}"
 
       # - name: Show secret
       #   run: |
